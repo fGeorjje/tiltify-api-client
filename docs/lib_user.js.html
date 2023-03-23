@@ -26,73 +26,101 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/* jshint esversion: 8 */
-
-class User {
+            <pre class="prettyprint source linenums"><code>class User {
   /**
    * A new user api object.
-   * @param {object} self is `this` from index.js
+   * @param {object} client - `this` from index.js
    * @constructor
    */
-  constructor (self) {
-    this._sendRequest = self._sendRequest
-    this._doRequest = self._doRequest
-    this.apiKey = self.apiKey
+  constructor (client) {
+    this.client = client
   }
+
   /**
-   * returns your own user
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all teams of a user
+   * @param {string} userId - ID of the user
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  self (callback) {
-    this._sendRequest(`user`, callback)
+  async getTeams (userId, callback) {
+    return await this.client._sendRequest('users/{userId}/teams', callback, { userId })
   }
+
   /**
-   * returns a list of users
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get a user by their ID
+   * @param {string} userId - ID of the user
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  list (callback) {
-    this._sendRequest(`users`, callback)
+  async get (userId, callback) {
+    return await this.client._sendRequest('users/{userId}', callback, { userId })
   }
+
   /**
-   * returns a specific user's profile
-   * @param {string} id the user id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the user that owns the application running this client
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  get (id, callback) {
-    this._sendRequest(`users/${id}`, callback)
+  async getCurrentUser (callback) {
+    return await this.client._sendRequest('current-user', callback)
   }
+
   /**
-   * returns campaigns for a user
-   * @param {string} id the user id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all campaigns, including team campaigns, of a user
+   * @param {string} userId - ID of the user
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getCampaigns (id, callback) {
-    this._sendRequest(`users/${id}/campaigns`, callback)
+  async getIntegrationEvents (userId, callback) {
+    return await this.client._sendRequest('users/{userId}/integration_events', callback, { userId })
   }
+
   /**
-   * returns an individual campaign for a user
-   * @param {string} userid the user to look up
-   * @param {string} campaignid the campaign to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get a user by their slug
+   * @param {string} slug - Slug of the user
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getCampaign (userid, campaignid, callback) {
-    this._sendRequest(`users/${userid}/campaigns/${campaignid}`, callback)
+  async getBySlug (slug, callback) {
+    return await this.client._sendRequest('users/by/slug/{slug}', callback, { slug })
   }
+
   /**
-   * returns all teams a user owns
-   * @param {string} id the user to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all user campaigns of a user
+   * @param {string} userId - ID of the user
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getOwnedTeams (id, callback) {
-    this._sendRequest(`users/${id}/owned-teams`, callback)
+  async getCampaigns (userId, callback) {
+    return await this.client._sendRequest('users/{userId}/campaigns', callback, { userId })
   }
+
   /**
-   * get teams a user is part of
-   * @param {string} id the user to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * @deprecated Use {@link User#getCurrentUser}
+   * Get the user that owns the application running this client
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getTeams (id, callback) {
-    this._sendRequest(`users/${id}/teams`, callback)
+  async self (callback) {
+    return await this.getCurrentUser(callback)
+  }
+
+  /**
+   * Get a user campaign with a user slug and a campaign slug
+   * @deprecated Use {@Campaign#getBySlug}
+   * @param {string} userSlug - Slug of the user
+   * @param {string} campaignSlug - Slug of the campaign
+   * @param {function} callback - Callback to execute when done (optional)
+   */
+  async getCampaign (userSlug, campaignSlug, callback) {
+    return this.client.Campaigns.getBySlug(userSlug, campaignSlug, callback)
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getOwnedTeams () {
+    return this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async list () {
+    this.client.unsupported()
   }
 }
 
@@ -113,7 +141,7 @@ module.exports = User
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

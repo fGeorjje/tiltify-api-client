@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Campaign<span class="signature">(self)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Campaign<span class="signature">(client)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Campaign"><span class="type-signature"></span>new Campaign<span class="signature">(self)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Campaign"><span class="type-signature"></span>new Campaign<span class="signature">(client)</span><span class="type-signature"></span></h4>
     
 
     
@@ -85,7 +85,7 @@
 
         <tr>
             
-                <td class="name"><code>self</code></td>
+                <td class="name"><code>client</code></td>
             
 
             <td class="type">
@@ -101,7 +101,7 @@
 
             
 
-            <td class="description last">is `this` from index.js</td>
+            <td class="description last">`this` from index.js</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line9">line 9</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -198,7 +198,7 @@
     
 
     
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -206,8 +206,7 @@
 
 
 <div class="description">
-    returns information about a campaign.
-The total raised is in this returned object.
+    Get a campaign by its ID
 </div>
 
 
@@ -243,7 +242,7 @@ The total raised is in this returned object.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -259,7 +258,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -272,7 +271,7 @@ The total raised is in this returned object.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -282,7 +281,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -323,7 +322,7 @@ The total raised is in this returned object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line21">line 21</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -359,7 +358,7 @@ The total raised is in this returned object.
     
 
     
-    <h4 class="name" id="getChallenges"><span class="type-signature"></span>getChallenges<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getBySlug"><span class="type-signature">(async) </span>getBySlug<span class="signature">(ownerSlug, campaignSlug, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -367,7 +366,7 @@ The total raised is in this returned object.
 
 
 <div class="description">
-    returns all challenges for a campaign
+    Get a campaign by its slugs
 </div>
 
 
@@ -403,7 +402,7 @@ The total raised is in this returned object.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>ownerSlug</code></td>
             
 
             <td class="type">
@@ -419,7 +418,30 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">The owner of the slug (either user or team slug)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignSlug</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The owner of the slug (either user or team slug)</td>
         </tr>
 
     
@@ -432,7 +454,7 @@ The total raised is in this returned object.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -442,7 +464,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -483,7 +505,7 @@ The total raised is in this returned object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line68">line 68</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line139">line 139</a>
     </li></ul></dd>
     
 
@@ -519,7 +541,7 @@ The total raised is in this returned object.
     
 
     
-    <h4 class="name" id="getDonations"><span class="type-signature"></span>getDonations<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getChallenges"><span class="type-signature">(async) </span>getChallenges<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -527,7 +549,7 @@ The total raised is in this returned object.
 
 
 <div class="description">
-    returns ALL donations from a campaign.
+    Get all targets of a campaign
 </div>
 
 
@@ -563,7 +585,7 @@ The total raised is in this returned object.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -579,7 +601,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -592,7 +614,7 @@ The total raised is in this returned object.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -602,7 +624,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -631,6 +653,8 @@ The total raised is in this returned object.
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Use <a href="Campaign.html#getTargets">Campaign#getTargets</a></li></ul></dd>
+    
 
     
 
@@ -643,7 +667,7 @@ The total raised is in this returned object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line41">line 41</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line216">line 216</a>
     </li></ul></dd>
     
 
@@ -679,7 +703,7 @@ The total raised is in this returned object.
     
 
     
-    <h4 class="name" id="getPolls"><span class="type-signature"></span>getPolls<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getDonations"><span class="type-signature">(async) </span>getDonations<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -687,7 +711,7 @@ The total raised is in this returned object.
 
 
 <div class="description">
-    returns all polls for a campaign
+    Get all donations of a campaign
 </div>
 
 
@@ -723,7 +747,7 @@ The total raised is in this returned object.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -739,7 +763,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -752,7 +776,7 @@ The total raised is in this returned object.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -762,7 +786,7 @@ The total raised is in this returned object.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -803,7 +827,7 @@ The total raised is in this returned object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line59">line 59</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
@@ -839,7 +863,7 @@ The total raised is in this returned object.
     
 
     
-    <h4 class="name" id="getRecentDonations"><span class="type-signature"></span>getRecentDonations<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getDonorLeaderboards"><span class="type-signature">(async) </span>getDonorLeaderboards<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -847,8 +871,7 @@ The total raised is in this returned object.
 
 
 <div class="description">
-    returns the most recent page of donations.
-Use this if polling for new donations.
+    Get the top donors of a campaign
 </div>
 
 
@@ -884,7 +907,7 @@ Use this if polling for new donations.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -900,7 +923,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -913,7 +936,7 @@ Use this if polling for new donations.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -923,7 +946,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -964,7 +987,7 @@ Use this if polling for new donations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line31">line 31</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -1000,7 +1023,7 @@ Use this if polling for new donations.
     
 
     
-    <h4 class="name" id="getRewards"><span class="type-signature"></span>getRewards<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getMilestones"><span class="type-signature">(async) </span>getMilestones<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1008,7 +1031,7 @@ Use this if polling for new donations.
 
 
 <div class="description">
-    returns all rewards for a campaign
+    Get all milestones of a campaign
 </div>
 
 
@@ -1044,7 +1067,7 @@ Use this if polling for new donations.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -1060,7 +1083,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -1073,7 +1096,7 @@ Use this if polling for new donations.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -1083,7 +1106,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -1124,7 +1147,7 @@ Use this if polling for new donations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line50">line 50</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line125">line 125</a>
     </li></ul></dd>
     
 
@@ -1160,7 +1183,7 @@ Use this if polling for new donations.
     
 
     
-    <h4 class="name" id="getSchedule"><span class="type-signature"></span>getSchedule<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getPolls"><span class="type-signature">(async) </span>getPolls<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1168,7 +1191,7 @@ Use this if polling for new donations.
 
 
 <div class="description">
-    returns the schedule of a campaign
+    Get all polls of a campaign
 </div>
 
 
@@ -1204,7 +1227,7 @@ Use this if polling for new donations.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -1220,7 +1243,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -1233,7 +1256,7 @@ Use this if polling for new donations.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -1243,7 +1266,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -1284,7 +1307,7 @@ Use this if polling for new donations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line76">line 76</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line180">line 180</a>
     </li></ul></dd>
     
 
@@ -1320,7 +1343,7 @@ Use this if polling for new donations.
     
 
     
-    <h4 class="name" id="getSupportingCampaigns"><span class="type-signature"></span>getSupportingCampaigns<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getRecentDonations"><span class="type-signature">(async) </span>getRecentDonations<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1328,7 +1351,7 @@ Use this if polling for new donations.
 
 
 <div class="description">
-    returns all supporting campaigns for a campaign
+    Get the most recent 10 donations of a campaign
 </div>
 
 
@@ -1364,7 +1387,7 @@ Use this if polling for new donations.
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>campaignId</code></td>
             
 
             <td class="type">
@@ -1380,7 +1403,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">The campaign ID that you're looking up</td>
+            <td class="description last">ID of the Campaign</td>
         </tr>
 
     
@@ -1393,7 +1416,7 @@ Use this if polling for new donations.
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -1403,7 +1426,7 @@ Use this if polling for new donations.
 
             
 
-            <td class="description last">A function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -1444,7 +1467,807 @@ Use this if polling for new donations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line85">line 85</a>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line206">line 206</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getRewards"><span class="type-signature">(async) </span>getRewards<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all rewards of a campaign
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the Campaign</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line112">line 112</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getSchedule"><span class="type-signature">(async) </span>getSchedule<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all schedule items of a campaign
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the Campaign</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line154">line 154</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getSupportingCampaigns"><span class="type-signature">(async) </span>getSupportingCampaigns<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all supporting campaigns of a campaign - Only supported for team campaigns!
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the Campaign</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getTargets"><span class="type-signature">(async) </span>getTargets<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all targets of a campaign
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the Campaign or legacy ID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserLeaderboards"><span class="type-signature">(async) </span>getUserLeaderboards<span class="signature">(campaignId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get the top fundraisers of a campaign - Only supported for team campaigns!
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the Campaign</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_campaign.js.html">lib/campaign.js</a>, <a href="lib_campaign.js.html#line167">line 167</a>
     </li></ul></dd>
     
 
@@ -1496,7 +2319,7 @@ Use this if polling for new donations.
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

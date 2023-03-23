@@ -26,97 +26,166 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/* jshint esversion: 8 */
-
-class FundraisingEvents {
+            <pre class="prettyprint source linenums"><code>class FundraisingEvents {
   /**
    * A new fundraising events api object.
-   * @param {object} self is `this` from index.js
+   * @param {object} client - `this` from index.js
    * @constructor
    */
-  constructor (self) {
-    this._sendRequest = self._sendRequest
-    this._doRequest = self._doRequest
-    this.apiKey = self.apiKey
+  constructor (client) {
+    this.client = client
   }
+
   /**
-   * returns a list of fundraising events
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get a fundraising event by its ID
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  list (callback) {
-    this._sendRequest(`fundraising-events`, callback)
+  async get (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}', callback, { fundraisingEventId })
   }
+
   /**
-   * returns info about a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top teams' fitness distances of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  get (id, callback) {
-    this._sendRequest(`fundraising-events/${id}`, callback)
+  async teamFitnessDistanceLeaderboard (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/team_fitness_distance_leaderboard', callback, { fundraisingEventId })
   }
+
   /**
-   * returns campaigns for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all supporting campaigns of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getCampaigns (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/campaigns`, callback)
+  async getSupportingEvents (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/supporting_events', callback, { fundraisingEventId })
   }
+
   /**
-   * returns donations for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top teams' fitness times of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getDonations (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/donationss`, callback)
+  async getTeamFitnessTimeLeaderboard (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/team_fitness_time_leaderboard', callback, { fundraisingEventId })
   }
+
   /**
-   * returns incentives for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top users' fitness times of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getIncentives (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/incentives`, callback)
+  async getUserFitnessTimeLeaderboard (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/user_fitness_time_leaderboard', callback, { fundraisingEventId })
   }
+
   /**
-   * returns leaderboards for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top donors of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getLeaderboards (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/leaderboards`, callback)
+  async getDonorLeaderboards (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/donor_leaderboards', callback, { fundraisingEventId })
   }
+
   /**
-   * returns registrations for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top user fundraisers of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getRegistrations (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/registrations`, callback)
+  async getUserLeaderboards (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/user_leaderboards', callback, { fundraisingEventId })
   }
+
   /**
-   * returns a registration fields for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top team fundraisers of a fundraising event
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getRegistrationFields (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/registration-fields`, callback)
+  async getTeamLeaderboards (fundraisingEventId, callback) {
+    return await this.client._sendRequest('fundraising_events/{fundraisingEventId}/team_leaderboards', callback, { fundraisingEventId })
   }
+
   /**
-   * returns a schedule for a fundraising event
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the leaderboards of a fundraising event
+   * @deprecated Use {@link FundraisingEvents#getUserLeaderboards},
+   *                 {@link FundraisingEvents#getTeamLeaderboards} or
+   *                 {@link FundraisingEvents#getDonorLeaderboards}
+   * @param {string} fundraisingEventId - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getSchedule (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/schedule`, callback)
+  async getLeaderboards (fundraisingEventId, callback) {
+    const [individual, team] = await Promise.all([
+      this.getUserLeaderboards(fundraisingEventId),
+      this.getTeamLeaderboards(fundraisingEventId)
+    ])
+    const obj = {
+      meta: { status: 200 },
+      data: { individual, team }
+    }
+    callback(obj)
+    return obj
   }
+
   /**
-   *
-   * @param {string} id fundraising event id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all supporting campaigns of a fundraising event
+   * @deprecated Use {@link FundraisingEvents#getSupportingEvents}
+   * @param {string} id - ID of the fundraising event
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getVisibilityOptions (id, callback) {
-    this._sendRequest(`fundraising-events/${id}/visibility-options`, callback)
+  async getCampaigns (fundraisingEventId, callback) {
+    return await this.getSupportingEvents(fundraisingEventId, callback)
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async list () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getDonations () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getIncentives () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getRegistrations () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getRegistrationFields () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getSchedule () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getVisibilityOptions () {
+    this.client.unsupported()
   }
 }
 
@@ -137,7 +206,7 @@ module.exports = FundraisingEvents
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

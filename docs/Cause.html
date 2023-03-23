@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Cause<span class="signature">(self)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Cause<span class="signature">(client)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Cause"><span class="type-signature"></span>new Cause<span class="signature">(self)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Cause"><span class="type-signature"></span>new Cause<span class="signature">(client)</span><span class="type-signature"></span></h4>
     
 
     
@@ -85,7 +85,7 @@
 
         <tr>
             
-                <td class="name"><code>self</code></td>
+                <td class="name"><code>client</code></td>
             
 
             <td class="type">
@@ -101,7 +101,7 @@
 
             
 
-            <td class="description last">is `this` from index.js</td>
+            <td class="description last">`this` from index.js</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line9">line 9</a>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -198,7 +198,7 @@
     
 
     
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -206,7 +206,7 @@
 
 
 <div class="description">
-    returns info about a cause
+    Get a cause by its ID
 </div>
 
 
@@ -242,7 +242,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>causeId</code></td>
             
 
             <td class="type">
@@ -258,7 +258,7 @@
 
             
 
-            <td class="description last">cause id to look up</td>
+            <td class="description last">ID of the cause</td>
         </tr>
 
     
@@ -271,7 +271,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -281,487 +281,7 @@
 
             
 
-            <td class="description last">a function to call when we're done getting data</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getCampaigns"><span class="type-signature"></span>getCampaigns<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    returns campaigns for a cause
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">cause id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a function to call when we're done getting data</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line27">line 27</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getDonations"><span class="type-signature"></span>getDonations<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    returns donations for a cause
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">cause id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a function to call when we're done getting data</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line35">line 35</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getFundraisingEvents"><span class="type-signature"></span>getFundraisingEvents<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    returns fundraising events for a cause
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">cause id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -838,7 +358,7 @@
     
 
     
-    <h4 class="name" id="getLeaderboards"><span class="type-signature"></span>getLeaderboards<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getCampaigns"><span class="type-signature">(async) </span>getCampaigns<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -846,7 +366,7 @@
 
 
 <div class="description">
-    returns leaderboards for a cause
+    Get all campaigns of a cause
 </div>
 
 
@@ -882,7 +402,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>causeId</code></td>
             
 
             <td class="type">
@@ -898,7 +418,7 @@
 
             
 
-            <td class="description last">cause id to look up</td>
+            <td class="description last">ID of the cause</td>
         </tr>
 
     
@@ -911,7 +431,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -921,7 +441,7 @@
 
             
 
-            <td class="description last">a function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -962,7 +482,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line51">line 51</a>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -998,95 +518,19 @@
     
 
     
-    <h4 class="name" id="getPermissions"><span class="type-signature"></span>getPermissions<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getDonations"><span class="type-signature">(async) </span>getDonations<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
-<div class="description">
-    returns permissions for a cause
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">cause id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a function to call when we're done getting data</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -1110,6 +554,8 @@
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Unsupported in Tiltify API v5</li></ul></dd>
+    
 
     
 
@@ -1122,7 +568,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line67">line 67</a>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -1158,7 +604,7 @@
     
 
     
-    <h4 class="name" id="getVisibilityOptions"><span class="type-signature"></span>getVisibilityOptions<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getDonorLeaderboards"><span class="type-signature">(async) </span>getDonorLeaderboards<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1166,7 +612,7 @@
 
 
 <div class="description">
-    returns visibility options for a cause
+    Get the top donors of a cause
 </div>
 
 
@@ -1202,7 +648,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>causeId</code></td>
             
 
             <td class="type">
@@ -1218,7 +664,7 @@
 
             
 
-            <td class="description last">cause id to look up</td>
+            <td class="description last">ID of the cause</td>
         </tr>
 
     
@@ -1231,7 +677,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -1241,7 +687,7 @@
 
             
 
-            <td class="description last">a function to call when we're done getting data</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -1282,7 +728,821 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line59">line 59</a>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getFundraisingEvents"><span class="type-signature">(async) </span>getFundraisingEvents<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all fundraising events of a cause
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>causeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the cause</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getLeaderboards"><span class="type-signature">(async) </span>getLeaderboards<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get the leaderboards of a cause
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>causeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the cause</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Use <a href="Cause.html#getUserLeaderboards">Cause#getUserLeaderboards</a>,                <a href="Cause.html#getTeamLeaderboards">Cause#getTeamLeaderboards</a> or                <a href="Cause.html#getDonorLeaderboards">Cause#getDonorLeaderboards</a></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getPermissions"><span class="type-signature">(async) </span>getPermissions<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Unsupported in Tiltify API v5</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getTeamLeaderboards"><span class="type-signature">(async) </span>getTeamLeaderboards<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get the top teams of a cause
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>causeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the cause</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserLeaderboards"><span class="type-signature">(async) </span>getUserLeaderboards<span class="signature">(causeId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get the top fundraisers of a cause
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>causeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the cause</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getVisibilityOptions"><span class="type-signature">(async) </span>getVisibilityOptions<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Unsupported in Tiltify API v5</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_cause.js.html">lib/cause.js</a>, <a href="lib_cause.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -1334,7 +1594,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

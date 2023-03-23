@@ -1,29 +1,45 @@
-# tiltify-api-client
+# tiltify-api-client-v5
 
 ## Docs
-[tiltify-api-client docs](https://daniellockard.github.io/tiltify-api-client/)
+[tiltify-api-client-v5 docs](https://fgeorjje.github.io/tiltify-api-client-v5)
 
 ## To install
-* `npm i --save tiltify-api-client`
+* `npm i --save tiltify-api-client-v5`
 
 ## To use
 
 You can use this library like this:
 
 ```javascript
-const TiltifyClient = require("tiltify-api-client")
+const TiltifyClient = require("tiltify-api-client-v5")
 
-client = new TiltifyClient(process.env.TILTIFY_ACCESS_TOKEN)
+const client = new TiltifyClient(process.env.TILTIFY_CLIENT_ID, process.env.TILTIFY_CLIENT_SECRET)
 
-client.Campaigns.get("27286", function (data) {
-    console.log(data)
+// async/await
+const campaign = await client.Campaigns.getBySlug('no-glitches-allowed', 'save-our-shelter')
+const donations = await client.Campaigns.getDonations(campaign.id);
+console.log(donations)
+
+// callbacks
+await client.Campaigns.getBySlug('no-glitches-allowed', 'save-our-shelter', (campaign) => {
+  await client.Campaigns.getDonations(campaign.id, (donations) => {
+    console.log(donations)
+  })
 })
 ```
 
-Functions are passed a callback to be called when the data is returned.
+All functions are async/await, but also optionally accept a callback as a second argument to be called.
 
-The above example will print the data about Campaign with ID 27286.
+This is partially backwards compatible to 
+[daniellockard/tiltify-api-client](https://github.com/daniellockard/tiltify-api-client).
+Some methods are unsupported as they are not available in the v5 API.
 
-Only use client.Campaigns.getDonations(id) to do analysis on the donations. Pulling all the donations from a large campaign can take a while. Tiltify requests that you get 100 at a time, max.
+The above example will print the data about the Save Our Shelter campaign from No Glitches Allowed
+(https://tiltify.com/+no-glitches-allowed/save-our-shelter)
 
-Use client.Campaigns.getRecentDonations(id) to get the most recent 10. This saves on bandwidth and processing time.
+Only use client.Campaigns.getDonations(id) to do analysis on the donations.
+Pulling all the donations from a large campaign can take a while.
+Tiltify requests that you get 100 at a time, max.
+
+Use client.Campaigns.getRecentDonations(id) to get the most recent 10.
+This saves on bandwidth and processing time.

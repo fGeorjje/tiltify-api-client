@@ -26,74 +26,109 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/* jshint esversion: 8 */
-
-class Cause {
+            <pre class="prettyprint source linenums"><code>class Cause {
   /**
    * A new cause api object.
-   * @param {object} self is `this` from index.js
+   * @param {object} client - `this` from index.js
    * @constructor
    */
-  constructor (self) {
-    this._sendRequest = self._sendRequest
-    this._doRequest = self._doRequest
-    this.apiKey = self.apiKey
+  constructor (client) {
+    this.client = client
   }
+
   /**
-   * returns info about a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top fundraisers of a cause
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  get (id, callback) {
-    this._sendRequest(`causes/${id}`, callback)
+  async getUserLeaderboards (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}/user_leaderboards', callback, { causeId })
   }
+
   /**
-   * returns campaigns for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top donors of a cause
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getCampaigns (id, callback) {
-    this._sendRequest(`causes/${id}/campaigns`, callback)
+  async getDonorLeaderboards (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}/donor_leaderboards', callback, { causeId })
   }
+
   /**
-   * returns donations for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all fundraising events of a cause
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getDonations (id, callback) {
-    this._sendRequest(`causes/${id}/donationss`, callback)
+  async getFundraisingEvents (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}/fundraising-events', callback, { causeId })
   }
+
   /**
-   * returns fundraising events for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get a cause by its ID
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getFundraisingEvents (id, callback) {
-    this._sendRequest(`causes/${id}/fundraising-events`, callback)
+  async get (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}', callback, { causeId })
   }
+
   /**
-   * returns leaderboards for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get all campaigns of a cause
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getLeaderboards (id, callback) {
-    this._sendRequest(`causes/${id}/leaderboards`, callback)
+  async getCampaigns (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}/campaigns', callback, { causeId })
   }
+
   /**
-   * returns visibility options for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the top teams of a cause
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getVisibilityOptions (id, callback) {
-    this._sendRequest(`causes/${id}/visibility-options`, callback)
+  async getTeamLeaderboards (causeId, callback) {
+    return await this.client._sendRequest('causes/{causeId}/team_leaderboards', callback, { causeId })
   }
+
   /**
-   * returns permissions for a cause
-   * @param {string} id cause id to look up
-   * @param {requestCallback} callback a function to call when we're done getting data
+   * Get the leaderboards of a cause
+   * @deprecated Use {@link Cause#getUserLeaderboards},
+   *                 {@link Cause#getTeamLeaderboards} or
+   *                 {@link Cause#getDonorLeaderboards}
+   * @param {string} causeId - ID of the cause
+   * @param {function} callback - Callback to execute when done (optional)
    */
-  getPermissions (id, callback) {
-    this._sendRequest(`causes/${id}/permissions`, callback)
+  async getLeaderboards (causeId, callback) {
+    const [indivcauseIdual, team] = await Promise.all([
+      this.getUserLeaderboards(causeId),
+      this.getTeamLeaderboards(causeId)
+    ])
+    const obj = {
+      meta: { status: 200 },
+      data: { indivcauseIdual, team }
+    }
+    callback(obj)
+    return obj
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getDonations () {
+    this.client.unsupported()  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getVisibilityOptions () {
+    this.client.unsupported()
+  }
+
+  /**
+   * @deprecated Unsupported in Tiltify API v5
+   */
+  async getPermissions () {
+    this.client.unsupported()
   }
 }
 
@@ -114,7 +149,7 @@ module.exports = Cause
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

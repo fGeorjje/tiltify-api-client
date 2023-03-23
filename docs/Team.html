@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Team<span class="signature">(self)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Team<span class="signature">(client)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Team"><span class="type-signature"></span>new Team<span class="signature">(self)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Team"><span class="type-signature"></span>new Team<span class="signature">(client)</span><span class="type-signature"></span></h4>
     
 
     
@@ -85,7 +85,7 @@
 
         <tr>
             
-                <td class="name"><code>self</code></td>
+                <td class="name"><code>client</code></td>
             
 
             <td class="type">
@@ -101,7 +101,7 @@
 
             
 
-            <td class="description last">is `this` from index.js</td>
+            <td class="description last">`this` from index.js</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line9">line 9</a>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -198,7 +198,7 @@
     
 
     
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">(teamId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -206,7 +206,7 @@
 
 
 <div class="description">
-    returns info about a team
+    Get a team by its ID
 </div>
 
 
@@ -242,7 +242,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>teamId</code></td>
             
 
             <td class="type">
@@ -258,7 +258,7 @@
 
             
 
-            <td class="description last">the team id to look up</td>
+            <td class="description last">ID of the team</td>
         </tr>
 
     
@@ -271,7 +271,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -281,190 +281,7 @@
 
             
 
-            <td class="description last">a function to call when data is returned</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getCampaign"><span class="type-signature"></span>getCampaign<span class="signature">(teamid, campaignid, callback)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    returns a info about a campaign attached to a team
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>teamid</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the team id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>campaignid</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the campaign id to look up</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a function to call when data is returned</td>
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -541,7 +358,7 @@
     
 
     
-    <h4 class="name" id="getCampaigns"><span class="type-signature"></span>getCampaigns<span class="signature">(id, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getBySlug"><span class="type-signature">(async) </span>getBySlug<span class="signature">(slug, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -549,7 +366,7 @@
 
 
 <div class="description">
-    returns campaigns for a team
+    Get a team by its slug
 </div>
 
 
@@ -585,7 +402,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>slug</code></td>
             
 
             <td class="type">
@@ -601,7 +418,7 @@
 
             
 
-            <td class="description last">the team id to look up</td>
+            <td class="description last">Slug of the team</td>
         </tr>
 
     
@@ -614,7 +431,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">function</span>
 
 
             
@@ -624,7 +441,514 @@
 
             
 
-            <td class="description last">a function to call when data is returned</td>
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCampaign"><span class="type-signature">(async) </span>getCampaign<span class="signature">(teamSlug, campaignSlug, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get a team campaign with a team slug and a campaign slug
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>teamSlug</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Slug of the team</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>campaignSlug</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Slug of the campaign</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Use {@Campaign#getBySlug}</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCampaigns"><span class="type-signature">(async) </span>getCampaigns<span class="signature">(teamId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all campaigns of a team
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>teamId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the team</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Use <a href="Team.html#getCampaigns">Team#getCampaigns</a></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getMembers"><span class="type-signature">(async) </span>getMembers<span class="signature">(teamId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get all members of a team
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>teamId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ID of the team</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -701,7 +1025,7 @@
     
 
     
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getTeamCampaigns"><span class="type-signature">(async) </span>getTeamCampaigns<span class="signature">(teamId, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -709,7 +1033,7 @@
 
 
 <div class="description">
-    returns a list of teams
+    Get all campaigns of a team
 </div>
 
 
@@ -745,13 +1069,13 @@
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>teamId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">string</span>
 
 
             
@@ -761,7 +1085,30 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">ID of the team</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback to execute when done (optional)</td>
         </tr>
 
     
@@ -802,7 +1149,93 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line18">line 18</a>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="list"><span class="type-signature">(async) </span>list<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Unsupported in Tiltify API v5</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_team.js.html">lib/team.js</a>, <a href="lib_team.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -854,7 +1287,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Wed May 08 2019 20:24:55 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 23 2023 03:37:44 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
