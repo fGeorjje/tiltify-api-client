@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This fork was made before the official tiltify-api-client was updated to use v5 of the Tiltify API. The main package now has v5 support, so this is no longer needed.
+
 # tiltify-api-client-v5
 
 ## Docs
